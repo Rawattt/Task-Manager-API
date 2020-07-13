@@ -3,43 +3,6 @@ const Task = require('../models/task')
 const router = new express.Router()
 const auth = require('../middleware/auth')
 
-// TASK ROUTING USING .THEN
-
-// router.get('/task', (req,res) => {
-//     Task.find({}).then(task => {
-//         res.send(task)
-//     }).catch(e =>{
-//         res.send(e)
-//     })
-// })
-
-// router.get('/task/:id', (req,res) => {
-//     const _id = req.params.id
-//     Task.findById(_id).then(task => {
-//         if(!task){
-//             return res.status(404).send()
-//         }
-//         res.send(task)
-//     }).catch(e => {
-//         res.status(500).send()
-//     })
-// })
-
-
-// router.post('/task', (req, res) => {
-//     const task = new Task(req.body)
-
-//     task.save().then(() => {
-//         console.log('Task created')
-//         res.status(201).send(task)
-//     }).catch(err => {
-//         res.status(400).send(err)
-//     })
-// })
-
-
-// TASK ROUTING USING ASYNC-AWAIT
-
 
 router.post('/task', auth, async (req,res) => {
     const task = new Task({
