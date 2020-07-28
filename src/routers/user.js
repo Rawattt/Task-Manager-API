@@ -6,46 +6,6 @@ const router = new express.Router()
 const auth = require('../middleware/auth')
 
 
-
-// USER ROUTING USING .THEN
-
-// app.get('/users', (req,res) => {
-//     User.find({}).then(users => {
-//         res.send(users)
-//     }).catch(e => {
-//         res.status(400).send(e)
-//     })
-// })
-
-
-// app.get('/users/:id', (req,res) => {
-//     const _id = req.params.id
-//     User.findById(_id).then(user => {
-//         if(!user){
-//             return res.status(404).send()
-//         }
-//         res.send(user)
-//     }).catch(e => {
-//         res.status(500).send()
-//     })
-// })
-
-
-// app.post('/users', (req,res) => {
-//     const user = new User(req.body)
-
-//     user.save().then(() => {
-//         console.log('User created!')
-//         res.status(201).send(user)
-//     }).catch((err) => {
-//         console.log('Something went wrong!!! Unable to create user')
-//         console.log(err)
-//         res.status(400).send(err)
-//     })
-
-// })
-
-
 // USER ROUTING USING ASYNC-AWAIT
 
 router.get('/users/me', auth, async (req,res) => {
